@@ -1,0 +1,24 @@
+<h1>商品詳細</h1>
+
+<%= attachment_image_tag @item, :image, :fill, 60, 60 %>
+
+<div>
+  <span>商品名</span>
+  <%= @item.name %>
+</div>
+
+<div>
+  <span>商品説明</span>
+  <%= @item.introduction %>
+</div>
+
+<div>
+  <span>
+    税込価格
+    </br>(税抜価格)
+  </span>
+  <%= @item.add_tax_price.to_s(:delimited) %> 円
+  (<%= @item.price %>)円
+</div>
+
+<%= link_to "編集する", edit_admin_item_path(@item.id) %>
