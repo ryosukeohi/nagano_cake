@@ -1,6 +1,7 @@
 <h1>ジャンル一覧・追加</h1>
 
 <%= form_with model: [:admin, @genre], local:true do |f| %>
+<span>ジャンル名</span>
 <%= f.text_field :name %>
 <%= f.submit '新規投稿' %>
 <% end %>
@@ -13,11 +14,14 @@
   </thead>
   <tbody>
     <% @genres.each do |genre| %>
-   <tr>
-     <td>
-    　<%= genre.name %>
-    　<% end %>
-     </td>
-   </tr>
+      <tr>
+        <td>
+    　   <%= genre.name %>
+        </td>
+        <td>
+          <%= link_to "編集", edit_admin_genre_path(genre.id) %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
