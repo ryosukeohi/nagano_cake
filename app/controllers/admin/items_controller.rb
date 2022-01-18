@@ -5,12 +5,11 @@ class Admin::ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @genre = genre.id
   end
 
   def create
     @item = Item.new(item_params)
-    @item.save
+    @item.save!
     redirect_to admin_items_path
   end
 

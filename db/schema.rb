@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_17_133317) do
+ActiveRecord::Schema.define(version: 2022_01_18_064103) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id", null: false
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 2022_01_17_133317) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "genre_id", null: false
     t.string "name", null: false
     t.string "image_id", null: false
     t.text "introduction", null: false
