@@ -5,6 +5,7 @@ class Admin::ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @genre = genre.id
   end
 
   def create
