@@ -7,6 +7,9 @@ root to: 'homes#top'
 resources :genres, only: [:index, :create, :edit, :update]
 resources :items, except: [:destroy]
 resources :customers, only: [:index, :show, :edit, :update,]
+get '/sign_in', to: 'sessions#new'
+post '/sign_in', to: 'sessions#create'
+delete '/sign_out', to: 'sessions#destroy'
 end
 
 root to: 'homes#top'
