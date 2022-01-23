@@ -4,6 +4,9 @@ class CartItemsController < ApplicationController
   end
 
   def update
+    @cart_items = current_customer.cart_items
+    @cart_items.update(cart_item_params)
+    redirect_to cart_items_path
   end
 
   def create

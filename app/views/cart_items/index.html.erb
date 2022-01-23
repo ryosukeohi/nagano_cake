@@ -13,11 +13,15 @@
   <tbody>
     <% @cart_items.each do |cart_item| %>
     <tr>
-    <td><%= cart_item.item.name %></td>
+    <td>
+      <%= attachment_image_tag cart_item.item, :image, :fill, 60, 60 %>
+      <%= cart_item.item.name %>
+    </td>
     <td><%= (cart_item.item.price * 1.1).floor %></td>
     <td>
       <%= form_with model: cart_item, local:true do |f| %>
       <%= f.select :amount, *[1..10] %>
+      <%= f.submit '変更' %>
       <% end %>
     </td>
     <td><%= (cart_item.item.price * 1.1).floor * cart_item.amount %></td>
