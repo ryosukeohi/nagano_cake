@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 resources :ordrers, only: [:new, :create, :index, :show]
 resources :items, only: [:index, :show]
+resources :cart_items, only: [:index, :destroy, :create, :update]
+delete '/cart_items/clear' => 'cart_items#clear'
 
 namespace :admin do
 root to: 'homes#top'
