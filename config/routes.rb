@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 resources :ordrers, only: [:new, :create, :index, :show]
 resources :items, only: [:index, :show]
 resources :cart_items, only: [:index, :destroy, :create, :update]
+
 delete '/cart_items/clear' => 'cart_items#clear'
 
 namespace :admin do
