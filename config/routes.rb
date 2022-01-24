@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 resources :ordrers, only: [:new, :create, :index, :show]
 resources :items, only: [:index, :show]
 resources :cart_items, only: [:index, :destroy, :create, :update]
+resources :addresses, except: [:new, :show]
 
 delete '/cart_items/clear' => 'cart_items#clear'
 

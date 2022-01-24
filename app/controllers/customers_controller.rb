@@ -12,9 +12,14 @@ class CustomersController < ApplicationController
   end
 
   def confirm
+    @customer = Customer.find_by(name: params[:name])
   end
 
   def withdraw
+    @customer = Customer.find_by(name: params[:name])
+    @customer.update(is_valid: false)
+    reset_session
+    redirect_to root_path
   end
 
 
