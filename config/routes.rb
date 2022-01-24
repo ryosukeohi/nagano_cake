@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :customers
-  devise_for :admin
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 resources :ordrers, only: [:new, :create, :index, :show]
 resources :items, only: [:index, :show]

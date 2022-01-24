@@ -17,8 +17,7 @@ class CartItemsController < ApplicationController
   end
 
   def clear
-    @cart_items = current_customer.cart_items
-    @cart_items.destroy
+    current_customer.cart_items.destroy_all
     redirect_to cart_items_path
   end
 
