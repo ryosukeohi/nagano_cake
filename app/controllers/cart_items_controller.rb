@@ -1,6 +1,7 @@
 class CartItemsController < ApplicationController
   def index
     @cart_items = current_customer.cart_items
+    @total = 0
   end
 
   def update
@@ -16,6 +17,9 @@ class CartItemsController < ApplicationController
   end
 
   def clear
+    @cart_items = current_customer.cart_items
+    @cart_items.destroy
+    redirect_to cart_items_path
   end
 
   def destroy

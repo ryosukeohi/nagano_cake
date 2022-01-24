@@ -1,5 +1,7 @@
 <h1>ショッピングカート</h1>
 
+<%= link_to "カートを空にする", cart_items_clear_path, method: :delete, "data-confirm" => "Are you sure?" %>
+
 <table>
   <thead>
     <tr>
@@ -17,16 +19,24 @@
       <%= attachment_image_tag cart_item.item, :image, :fill, 60, 60 %>
       <%= cart_item.item.name %>
     </td>
-    <td><%= (cart_item.item.price * 1.1).floor %></td>
+    <td><%= cart_item.item.with_tax_price %></td>
     <td>
       <%= form_with model: cart_item, local:true do |f| %>
       <%= f.select :amount, *[1..10] %>
       <%= f.submit '変更' %>
       <% end %>
     </td>
-    <td><%= (cart_item.item.price * 1.1).floor * cart_item.amount %></td>
+    <td><%= cart_item.subtotal %></td>
     <td><%= link_to "削除する", "/cart_items/#{cart_item.id}", method: :delete, "data-confirm" => "Are you sure?" %></td>
     </tr>
+    <% @total +=   %>
     <% end %>
   </tbody>
+</table>
+
+<table>
+  <tr>
+    <th>合計金額</th>
+    <td><%= @total %></td>
+  </tr>
 </table>
