@@ -1,7 +1,8 @@
 class HomesController < ApplicationController
 
   def top
-    @items = Item.page(params[:page]).reverse_order
+    @items = Item.all
+    p @items
   end
 
   def about

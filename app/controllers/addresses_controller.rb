@@ -5,10 +5,9 @@ class AddressesController < ApplicationController
   end
 
   def create
-     @address = Address.new(address_params)
+    @address = Address.new(address_params)
     @address.save
     redirect_to addresses_path
-
   end
 
   def edit
