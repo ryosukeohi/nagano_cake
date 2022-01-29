@@ -10,7 +10,58 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <span class="d-flex align-items-center"><a class="navbar-brand p-3 nav-link text-light" href="/">LOGO</a></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <% if admin_signed_in? %>
+          <%= link_to '商品一覧', "/admin/items", class: 'nav-link active text-light fas fa-home' %>
+          <% elsif customer_signed_in? %>
+          <%= link_to 'マイページ', "/customers/show", class: 'nav-link active text-light fas fa-home' %>
+          <% else %>
+          <%= link_to 'About', "/about", class: 'nav-link active text-light fas fa-home' %>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <% if admin_signed_in? %>
+          <%= link_to '商品一覧', "/admin/items", class: 'nav-link text-light fas fa-users' %>
+          <% else %>
+          <%= link_to '商品一覧', "/items", class: 'nav-link text-light fas fa-link' %>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <% if admin_signed_in? %>
+          <%= link_to '注文履歴一覧', "/admin/homes/top", class: 'nav-link text-light fas fa-book-open' %>
+          <% elsif customer_signed_in? %>
+          <%= link_to 'カート', "/cart_items", class: 'nav-link text-light fas fa-user-plus' %>
+          <% else %>
+          <%= link_to '新規登録', "/customers/sign_up", class: 'nav-link text-light fas fa-user-plus' %>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <% if admin_signed_in? %>
+          <%= link_to 'ジャンル一覧', "/admin/genres", method: :get, class: 'nav-link text-light fas fa-sign-out-alt' %>
+          <% elsif customer_signed_in? %>
+          <%= link_to 'ログアウト', "/customers/sign_out", method: :delete, class: 'nav-link text-light fas fa-sign-in-alt' %>
+          <% else %>
+          <%= link_to 'ログイン', "/customers/sign_in", class: 'nav-link text-light fas fa-sign-in-alt' %>
+          <% end %>
+        </li>
+        <% if admin_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-light fas fa-sign-out-alt' %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-    <%= yield %>
+<%= yield %>
   </body>
 </html>
