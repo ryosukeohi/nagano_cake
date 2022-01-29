@@ -13,7 +13,9 @@
     </tr>
   </thead>
   <tbody>
+    <% @total = 0 %>
     <% @cart_items.each do |cart_item| %>
+    <% @total += cart_item.subtotal   %>
     <tr>
     <td>
       <%= attachment_image_tag cart_item.item, :image, :fill, 60, 60 %>
@@ -29,7 +31,6 @@
     <td><%= cart_item.subtotal %></td>
     <td><%= link_to "削除する", "/cart_items/#{cart_item.id}", method: :delete, "data-confirm" => "Are you sure?" %></td>
     </tr>
-    <% @total +=   %>
     <% end %>
   </tbody>
 </table>
