@@ -19,7 +19,7 @@ patch '/customers/update' => 'customers#update'
 get '/customers/confirm' => 'customers#confirm'
 get '/customers/withdraw' => 'customers#withdraw'
 
-resources :ordrers, only: [:new, :create, :index, :show]
+resources :orders, only: [:new, :create, :index, :show]
 post 'orders/confirm' => 'orders#confirm'
 get 'orders/complete' => 'orders#complete'
 

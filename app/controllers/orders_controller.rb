@@ -19,14 +19,15 @@ class OrdersController < ApplicationController
 
 
   def confirm
+     binding.pry
   end
 
 
   def complete
   end
-  
+
   private
   def order_params
-    params.require(:order).permit(:title, :body)
+    params.require(:order).permit(:address, :postal_code, :name)
   end
 end
