@@ -20,11 +20,16 @@ get '/customers/confirm' => 'customers#confirm'
 get '/customers/withdraw' => 'customers#withdraw'
 
 resources :ordrers, only: [:new, :create, :index, :show]
+post 'orders/confirm' => 'orders#confirm'
+get 'orders/complete' => 'orders#complete'
+
 resources :items, only: [:index, :show]
+
 resources :cart_items, only: [:index, :destroy, :create, :update]
+delete '/cart_items/clear' => 'cart_items#clear'
+
 resources :addresses, except: [:new, :show]
 
-delete '/cart_items/clear' => 'cart_items#clear'
 
 namespace :admin do
 get '/homes/top' => 'homes#top'
