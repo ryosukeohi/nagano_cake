@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  root to: 'homes#top'
+get '/about' => 'homes#about'
+get '/customers/show' => 'customers#show'
+get '/customers/edit' => 'customers#edit'
+patch '/customers/update' => 'customers#update'
+get '/customers/confirm' => 'customers#confirm'
+patch '/customers/withdraw' => 'customers#withdraw'
+
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -11,13 +19,7 @@ Rails.application.routes.draw do
   registrations: 'customers/registrations'
 }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-root to: 'homes#top'
-get '/about' => 'homes#about'
-get '/customers/show' => 'customers#show'
-get '/customers/edit' => 'customers#edit'
-patch '/customers/update' => 'customers#update'
-get '/customers/confirm' => 'customers#confirm'
-get '/customers/withdraw' => 'customers#withdraw'
+
 
 resources :orders, only: [:new, :create, :index, :show]
 post 'orders/confirm' => 'orders#confirm'
