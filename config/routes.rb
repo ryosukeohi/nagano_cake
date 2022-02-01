@@ -29,7 +29,7 @@ get 'orders/complete' => 'orders#complete'
 resources :items, only: [:index, :show]
 
 resources :cart_items, only: [:index, :destroy, :create, :update]
-delete '/cart_items/clear' => 'cart_items#clear'
+delete '/clear' => 'cart_items#clear'
 
 resources :addresses, except: [:new, :show]
 

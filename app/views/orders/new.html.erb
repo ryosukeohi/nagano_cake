@@ -1,12 +1,12 @@
 <h4>注文情報入力</h4>
 
-<%= form_with model: @order, local:true do |f| %>
+<%= form_with model: @order, url: orders_confirm_path, local:true do |f| %>
  <p>支払方法</p>
- <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
- <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
+ <%= f.radio_button :payment, Order.payments.key(1) %>
+ <%= f.label :payment, Order.payments_i18n[:credit_card] %>
 
- <%= f.radio_button :payment_method, Order.payment_methods.key(2) %>
- <%= f.label :payment_method, Order.payment_methods_i18n[:transfer]%>
+ <%= f.radio_button :payment, Order.payments.key(2) %>
+ <%= f.label :payment, Order.payments_i18n[:transfer]%>
 
  <p>お届け先</p>
  <div class="field">

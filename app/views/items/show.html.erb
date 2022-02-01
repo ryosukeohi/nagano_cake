@@ -4,7 +4,7 @@
 
   <%= form_with model: @cart_item, local:true do |f| %>
 
-  <%= f.hidden_field :item_id, value: 1 %>
+  <%= f.hidden_field :item_id, value: @item.id %>
   <%= f.hidden_field :customer_id, :value => @customer %>
   <%= f.select :amount, *[1..10] %>
   <%= f.submit "カートに入れる" %>

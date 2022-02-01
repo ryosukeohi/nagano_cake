@@ -29,7 +29,7 @@
         </li>
         <li class="nav-item">
           <% if admin_signed_in? %>
-          <%= link_to '商品一覧', "/admin/items", class: 'nav-link text-light fas fa-users' %>
+          <%= link_to '会員一覧', "/admin/customers", class: 'nav-link text-light fas fa-users' %>
           <% else %>
           <%= link_to '商品一覧', "/items", class: 'nav-link text-light fas fa-link' %>
           <% end %>

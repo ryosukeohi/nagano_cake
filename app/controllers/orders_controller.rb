@@ -6,8 +6,8 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.save
-    redirect_to orders_confirm_path
+    render :new and return if params[:back] || !@order.save
+    redirect_to @order
   end
 
   def index
@@ -19,7 +19,13 @@ class OrdersController < ApplicationController
 
 
   def confirm
-     binding.pry
+    @order = Order.new(order_params)
+    render :new if @order.invalid?
+    @order.postal_code = current_customer.postal_code
+    @order.address = current_customer.address
+    @order.name = current_customer.first_name + current_customer.last_name
+
+
   end
 
 
@@ -28,6 +34,6 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:address, :postal_code, :name)
+    params.require(:order).permit(:payment, :postal_code, :address, :name)
   end
 end
