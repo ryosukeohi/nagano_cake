@@ -7,6 +7,7 @@ patch '/customers/update' => 'customers#update'
 get '/customers/confirm' => 'customers#confirm'
 patch '/customers/withdraw' => 'customers#withdraw'
 
+
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
