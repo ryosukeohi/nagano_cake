@@ -10,14 +10,34 @@
     </tr>
   </thead>
   <tbody>
+    <% @total = 0 %>
     <% @cart_items. each do |cart_item| %>
+    <% @total += cart_item.subtotal   %>
     <td>
       <%= attachment_image_tag cart_item.item, :image, :fill, 60, 60 %>
       <%= cart_item.item.name %>
     </td>
     <td><%= cart_item.item.with_tax_price %></td>
     <td><%= cart_item.amount %></td>
-    
+    <td><%= cart_item.subtotal %></td>
     <% end %>
   </tbody>
 </table>
+
+<table>
+  <tr>
+    <th>送料</th>
+    <td><%= @order.postage %></td>
+  </tr>
+  <tr>
+    <th>商品合計</th>
+    <td><%= @total %></td>
+  </tr>
+  <tr>
+    <% @order.pay = @total + @order.postage %>
+    <th>請求金額</th>
+    <td><%= @order.pay %></td>
+  </tr>
+</table>
+
+<p>支払方法</p>
