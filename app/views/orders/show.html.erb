@@ -1,0 +1,17 @@
+<h4>注文履歴詳細</h4>
+
+<p>注文情報</p>
+<table>
+  <tr>
+    <th>注文日</th>
+    <td><%= @order.created_at %></td>
+    <th>配送先</th>
+    <td>
+      〒<%= @order.postal_code %></br>
+        <%= @order.address %></br>
+        <%= @order.name %>
+    </td>
+    <th>支払方法</th>
+    <td><</td>
+  </tr>
+</table>

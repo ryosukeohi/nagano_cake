@@ -26,12 +26,12 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders
-    # @order_details = @orders.order_detail
+    @orders = current_customer.ordersl
   end
 
 
   def show
+    @order = Order.find(params[:id])
   end
 
 
