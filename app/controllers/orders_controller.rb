@@ -26,6 +26,8 @@ class OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.orders
+    # @order_details = @orders.order_detail
   end
 
 
