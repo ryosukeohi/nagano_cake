@@ -5,13 +5,57 @@
   <tr>
     <th>注文日</th>
     <td><%= @order.created_at %></td>
+  </tr>
+  <tr>
     <th>配送先</th>
     <td>
       〒<%= @order.postal_code %></br>
         <%= @order.address %></br>
         <%= @order.name %>
     </td>
-    <th>支払方法</th>
-    <td><</td>
   </tr>
+  <tr>
+    <th>支払方法</th>
+    <td><%= Order.payments_i18n[@order.payment.to_s] %></td>
+  </tr>
+</table>
+
+<p>注文内容</p>
+<table>
+  <thead>
+    <tr>
+      <th>商品</th>
+      <th>単価(税込)</th>
+      <th>個数</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @total = 0 %>
+  <% @order.order_details.each do |detail| %>
+  <% @total += detail.mid %>
+  <tr>
+    <td><%= detail.item.name %></td>
+    <td><%= detail.item.with_tax_price %></td>
+    <td><%= detail.quantity %></td>
+    <td><%= detail.mid %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<p>請求情報</p>
+<table>
+   <tr>
+     <th>商品合計</th>
+     <th><%= @total %></th>
+   </tr>
+   <tr>
+     <th>配送料</th>
+     <td><%= @order.postage %></td>
+   </tr>
+   <tr>
+     <th>ご請求額</th>
+     <td><%= @order.pay %></td>
+   </tr>
 </table>
