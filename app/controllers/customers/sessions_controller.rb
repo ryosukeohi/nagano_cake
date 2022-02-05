@@ -26,6 +26,10 @@ class Customers::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
+  def after_sign_in_path_for(resource)
+    customers_show_path
+  end
+
   def reject_inactive_customer
     @customer = Customer.find_by(email: params[:customer][:email])
     if @customer
@@ -34,4 +38,5 @@ class Customers::SessionsController < Devise::SessionsController
       end
     end
   end
+
 end
