@@ -12,7 +12,7 @@
   <tbody>
     <% @total = 0 %>
     <% @cart_items. each do |cart_item| %>
-    <% @total += cart_item.subtotal   %>
+    <% @total += cart_item.subtotal %>
     <tr>
     <td>
       <%= attachment_image_tag cart_item.item, :image, :fill, 60, 60 %>

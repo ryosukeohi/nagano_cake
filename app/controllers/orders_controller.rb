@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-
+before_action :authenticate_customer!
   def new
     @order = Order.new
   end
@@ -7,7 +7,6 @@ class OrdersController < ApplicationController
   def create
     cart_items = current_customer.cart_items
     @order = Order.new(order_params)
-    p @order
     if @order.save
       cart_items.each do |cart|
       order_detail = OrderDetail.new
@@ -17,7 +16,7 @@ class OrdersController < ApplicationController
       order_detail.purchase_price = cart.item.price
       order_detail.save
     end
-      redirect_to orders_complete_path
+      redirect_to complete_path
       cart_items.destroy_all
     else
       @order = Order.new(order_params)

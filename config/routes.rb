@@ -24,7 +24,7 @@ patch '/customers/withdraw' => 'customers#withdraw'
 
 resources :orders, only: [:new, :create, :index, :show]
 post 'orders/confirm' => 'orders#confirm'
-get 'orders/complete' => 'orders#complete'
+get '/complete' => 'orders#complete'
 
 resources :items, only: [:index, :show]
 
