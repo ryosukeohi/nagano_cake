@@ -1,27 +1,43 @@
-<p>商品新規登録</p>
+<div class="container">
+<h4>商品新規登録</h4>
+
+
+<div class="row justify-content-center" >
+<div class="form-horizontal" role="form">
 
 <%= form_with model: [:admin, @item], local:true do |f| %>
- <div>
-   <label>商品画像</label>
+ <div class="row mb-3">
+   <label class="col-md-4 col-form-label text-right">商品画像</label>
+ <div class="col-md-8">
  <%= f.attachment_field :image %>
  </div>
- 
- <div>
-   <label>商品名</label>
+ </div>
+
+ <div class="row mb-3">
+   <label class="col-md-4 col-form-label text-right">商品名</label>
+   <div class="col-md-8">
    <%= f.text_field :name %>
+   </div>
  </div>
- 
- <div>
-   <label>商品説明</label>
+
+ <div class="row mb-3">
+   <label class="col-md-4 col-form-label text-right">商品説明</label>
+   <div class="col-md-8">
    <%= f.text_area :introduction %>
+   </div>
  </div>
- 
- <div>
-   <label>税抜価格</label>
+
+ <div class="row mb-3">
+   <label class="col-md-4 col-form-label text-right">税抜価格</label>
+   <div class="col-md-8">
    <%= f.text_field :price %>円
+   </div>
  </div>
- 
- <div>
-  <%= f.submit '新規登録' %>
+
+ <div class="text-center">
+  <%= f.submit '新規登録', class: "btn btn-primary" %>
  </div>
 <% end %>
+</div>
+</div>
+</div>

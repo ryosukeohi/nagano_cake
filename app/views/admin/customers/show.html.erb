@@ -1,6 +1,8 @@
-<h1><%= @customer.first_name + @customer.last_name %>さんの会員詳細</h1>
+<div class="container" >
+<h4><%= @customer.first_name + @customer.last_name %>さんの会員詳細</h4>
 
-<table>
+<div class="row justify-content-center" >
+<table class="col-md-6 justify-content-center">
   <tr>
     <th>会員ID</th>
     <td><%= @customer.id %></td>
@@ -38,4 +40,8 @@
     <% end %>
   </td>
 </table>
-<%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
+</div>
+<div class="text-center">
+<%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-primary m" %>
+</div>
+</div>
