@@ -1,6 +1,8 @@
-<p>注文情報確認</p>
+<div class="container">
+<h4>注文情報確認</h4>
 
-<table>
+<div class="row">
+<table class="table col-8">
   <thead>
     <tr>
       <th>商品名</th>
@@ -26,7 +28,7 @@
   </tbody>
 </table>
 
-<table>
+<table class="table col-3 ml-1">
   <tr>
     <th>送料</th>
     <td><%= @order.postage %></td>
@@ -41,6 +43,7 @@
     <td><%= @order.pay %></td>
   </tr>
 </table>
+</div>
 
 <p>支払方法</p>
 <%= Order.payments_i18n[@order.payment.to_s] %>
@@ -56,5 +59,6 @@
   <%= f.hidden_field :postal_code %>
   <%= f.hidden_field :postage, value: @order.postage %>
   <%= f.hidden_field :pay, value: @order.pay %>
-  <%= f.submit '注文を確定する' %>
+  <%= f.submit '注文を確定する', class: "btn btn-success" %>
 <% end %>
+</div>

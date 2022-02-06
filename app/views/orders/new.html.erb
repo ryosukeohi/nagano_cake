@@ -1,5 +1,6 @@
+<div class="container">
 <h4>注文情報入力</h4>
-
+<div class="row justify-content-center" >
 <%= form_with model: @order, url: orders_confirm_path, local:true do |f| %>
  <p>支払方法</p>
  <%= f.radio_button :payment, Order.payments.key(1) %>
@@ -43,7 +44,9 @@
   </tr>
   </tbody>
  </table>
- <%= f.submit "確認画面へ進む" %>
+ <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
 
 
 <% end %>
+</div>
+</div>
