@@ -1,22 +1,26 @@
-<h1>商品新規登録</h1>
+<p>商品新規登録</p>
 
 <%= form_with model: [:admin, @item], local:true do |f| %>
  <div>
-   <span>商品画像</span>
+   <label>商品画像</label>
  <%= f.attachment_field :image %>
  </div>
+ 
  <div>
-   <span>商品名</span>
+   <label>商品名</label>
    <%= f.text_field :name %>
  </div>
+ 
  <div>
-   <span>商品説明</span>
+   <label>商品説明</label>
    <%= f.text_area :introduction %>
  </div>
+ 
  <div>
-   <span>税抜価格</span>
+   <label>税抜価格</label>
    <%= f.text_field :price %>円
  </div>
+ 
  <div>
   <%= f.submit '新規登録' %>
  </div>

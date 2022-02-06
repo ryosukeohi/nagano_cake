@@ -1,23 +1,43 @@
-<h1>商品編集</h1>
+<div class="container" >
 
+<h4>商品編集</h4>
+<div class="row　justify-content-center" >
+<div class="form-horizontal" role="form">
 <%= form_with model: [:admin, @item], local:true do |f| %>
- <div>
-   <span>商品画像</span>
- <%= f.attachment_field :image %>
+
+<div class="row mb-3">
+   <label class="col-md-4 col-form-label text-right">商品画像</label>
+ <div class="col-md-8">
+   <%= f.attachment_field :image %>
  </div>
- <div>
-   <span>商品名</span>
+</div>
+
+ <div class="row mb-3">
+  <label class="col-md-4 col-form-label text-right">商品名</label>
+  <div class="col-md-8">
    <%= f.text_field :name %>
+  </div>
  </div>
- <div>
-   <span>商品説明</span>
+
+ <div class="row mb-3">
+  <label class="col-md-4 col-form-label text-right">商品説明</label>
+  <div class="col-md-8">
    <%= f.text_area :introduction %>
+  </div>
  </div>
- <div>
-   <span>税抜価格</span>
+
+
+ <div class="row mb-3">
+  <label class="col-sm-4 col-form-label text-right">税抜価格</label>
+  <div class="col-md-8">
    <%= f.text_field :price %>円
+  </div>
  </div>
- <div>
-  <%= f.submit '変更を保存' %>
+
+ <div class="text-center">
+  <%= f.submit '変更を保存', class: "btn btn-primary" %>
  </div>
 <% end %>
+</div>
+</div>
+</div>

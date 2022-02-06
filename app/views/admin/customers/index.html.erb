@@ -1,11 +1,12 @@
 <h1>会員一覧</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>会員ID</th>
       <th>氏名</th>
       <th>メールアドレス</th>
+      <th>ステータス</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,13 @@
         <% end %>
       </td>
       <td><%= customer.email %></td>
+      <td>
+        <% if customer.is_active == true %>
+        <%= "有効" %>
+        <% elsif customer.is_active == false %>
+        <%= "退会" %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
     <%= paginate @customers %>
