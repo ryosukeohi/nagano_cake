@@ -31,7 +31,7 @@ resources :items, only: [:index, :show]
 resources :cart_items, only: [:index, :destroy, :create, :update]
 delete '/clear' => 'cart_items#clear'
 
-resources :addresses, except: [:new, :show]
+resources :addresses, only: [:index, :create, :destroy, :edit, :update]
 
 
 namespace :admin do
