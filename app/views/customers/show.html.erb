@@ -1,8 +1,9 @@
+<div class="container">
 <h2>マイページ</h2>
 
-登録情報<%= link_to '編集する', customers_edit_path %>
-
-<table>
+<h4>登録情報</h4><%= link_to '編集する', customers_edit_path, class: "btn btn-primary m-2" %>
+<div class="row justify-content-center" >
+<table class="table">
   <tbody>
     <tr>
       <th>氏名</th>
@@ -32,6 +33,8 @@
 </table>
 
 
-配送先<%= link_to "一覧を見る", addresses_path %>
+配送先<%= link_to "一覧を見る", addresses_path, class: "btn btn-primary" %>
 
-注文履歴<%= link_to "一覧を見る",orders_path %>
+注文履歴<%= link_to "一覧を見る",orders_path, class: "btn btn-primary" %>
+</div>
+</div>
