@@ -13,7 +13,7 @@ class AddressesController < ApplicationController
   end
 
   def edit
-  @address = Address.find(params[:id])
+   @address = Address.find(params[:id])
   end
 
   def update
@@ -31,6 +31,6 @@ class AddressesController < ApplicationController
   private
 
   def address_params
-    params.require(:address).permit(:name, :postal_code, :address)
+    params.require(:address).permit(:name, :postal_code, :address, :customer_id)
   end
 end
