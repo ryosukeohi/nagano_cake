@@ -38,7 +38,7 @@ namespace :admin do
 get '/homes/top' => 'homes#top'
 resources :genres, only: [:index, :create, :edit, :update]
 resources :items, except: [:destroy]
-resources :customers, only: [:index, :show, :edit, :update,]
+resources :customers, only: [:index, :show, :edit, :update]
 resources :orders, only: [:show]
 end
 
