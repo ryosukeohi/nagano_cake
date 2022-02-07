@@ -16,6 +16,10 @@
         <%= @order.name %>
     </td>
   </tr>
+  <tr>
+    <th>支払方法</th>
+    <td><%= Order.payments_i18n[@order.payment.to_s] %></td>
+  </tr>
 </table>
 
 <div class="row">
